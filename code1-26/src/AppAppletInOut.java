@@ -34,3 +34,4 @@ public class AppAppletInOut extends JApplet
         });
     }
 }
+//求平方
