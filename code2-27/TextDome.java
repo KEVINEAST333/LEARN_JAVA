@@ -62,3 +62,17 @@ public class TextDome {
 	}
 	// 三个数找出最大和最小。 
 }
+class Test {
+	
+}
+
+public class HelloWorld {
+
+	public static void main(String[] args) {
+
+		long num = 10L;
+		System.out.println(num);
+
+		System.out.println(Long.MAX_VALUE+1);
+		System.out.println(Long.MIN_VALUE);
+		//输出数据大小
