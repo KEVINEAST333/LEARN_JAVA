@@ -7,7 +7,6 @@ public class Text {
 		 int y=4;
 		 x/=++y; 
 		System.out.println(a);
-		System.out.println(b);
-		System.out.println(x);
+	
 	}
 }
