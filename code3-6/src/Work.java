@@ -8,6 +8,10 @@ public class Work {
                 sum++;
 
             }
+			if (i / 10 == 9) {
+				sum++;
+			}
+			
 
         }
         System.out.println(sum);*/
@@ -161,7 +165,7 @@ public class Work {
       //求两个正整数的最大公约数
 
         /*Scanner scan = new Scanner(System.in);
-        while (scan.hasNext()) {
+        while (scan.hasNext()) {//如果还有下一个对象，那么执行以下的句子
             int n = scan.nextInt();
             int flag = 0;
             while (n != 0) {
