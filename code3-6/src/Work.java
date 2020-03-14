@@ -172,7 +172,7 @@ public class Work {
                 if ((n & 1) == 1) {
                     flag++;
                 }
-                n = n >> 1;
+                n = n >>> 1; //无符号右移 防止负数死循环
             }
             System.out.println(flag);
             //求一个整数，在内存当中存储时，二进制1的个数

@@ -17,8 +17,9 @@ public static void main (String args[]) {
 	System.out.println(ret);
 	int ret2 = text(a,b);
 	System.out.println(ret2);
-	
-	
+	//重载
+
+
 	// public static int fac(int n) {
 		// if (n == 1) {
 			// return 1;
