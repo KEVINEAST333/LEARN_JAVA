@@ -1,4 +1,8 @@
-
+class person {
+    private int age;
+    private String name;
+    private String sex;
+}
 public class test {
     public static void main(String[] args) {
 //        int a = 100;
