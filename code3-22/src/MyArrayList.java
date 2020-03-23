@@ -30,7 +30,7 @@ public class MyArrayList {
     }
     //判定是否包含某个元素
     public boolean contains(int toFind) {
-        for(int i =0;i <usedSize;i++) {
+        for(int i =0;i < usedSize;i++) {
             if(toFind == this.elem[i]) {
                 return true;
             }
@@ -50,7 +50,7 @@ public class MyArrayList {
          public int getPos(int pos){
         return this.elem[pos] ;
     }
-    public void remove(int key){
+    public void remove(int key) {
         int a = this.search(key);
         if(a == -1) {
             return ;
