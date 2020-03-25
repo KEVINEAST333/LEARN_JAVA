@@ -41,8 +41,29 @@ public class SingleLinkedList {
         cur.next = node;
     }
     //任意位置插入,第一个数据节点为0号下标
-    public boolean addIndex(int index, int data) {
-        return false;
+    public void addIndex(int index, int data) {
+        int end = size() -1;
+        if(index == 0) {
+            addFirst(data);
+        }
+        if(index == end) {
+            addLast(data);
+        }
+        if (index > 0 && index < end) {
+            Node prev = this.head;
+            Node cur = prev.next;
+            int count = 0;
+            while (cur != null) {
+                count++;
+                if (count == index ) {
+                    Node node = new Node(data);
+                    prev.next = node;
+                    node.next = cur;
+                }
+                cur = cur.next;
+                prev = prev.next;
+            }
+        }
     }
 
     //查找是否包含关键字key是否在单链表当中
@@ -78,7 +99,20 @@ public class SingleLinkedList {
 
     //删除所有值为key的节点
     public void removeAllKey(int key) {
-
+        Node prev = this.head;
+        Node cur = prev.next;
+        if(prev.data == key) {
+            remove(key);
+        }
+        while(cur != null) {
+            if (cur.data == key) {
+                prev.next = cur.next;
+                cur = cur.next;
+            } else {
+                prev = cur;
+                cur = cur.next;
+            }
+        }
     }
 
     //得到单链表的长度
@@ -99,7 +133,7 @@ public class SingleLinkedList {
             cur = cur.next;
         }
     }
-
+    //全部删除链表
     public void clear() {
     }
 }
