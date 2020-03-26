@@ -21,7 +21,8 @@ public class TestDrive {
 //        singleLinkedList.addIndex(0,7);
         singleLinkedList.display();
         System.out.println("................................");
-        singleLinkedList.removeAllKey(2);
+//        singleLinkedList.removeAllKey(2);
+        singleLinkedList.clear();
         singleLinkedList.display();
     }
 }

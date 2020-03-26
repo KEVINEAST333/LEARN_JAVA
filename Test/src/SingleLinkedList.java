@@ -135,5 +135,12 @@ public class SingleLinkedList {
     }
     //全部删除链表
     public void clear() {
+        //this.head = null;
+        Node cur = this.head.next;
+        while(cur != null) {
+            this.head.next = cur.next;
+            cur = cur.next;
+        }
+        this.head = null;
     }
 }
