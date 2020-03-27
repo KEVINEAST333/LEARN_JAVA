@@ -82,7 +82,7 @@ public class SingleLinkedList {
     public void remove(int key) {
         Node prve = this.head;
         Node cur = prve.next;
-        if(prve.data == key) {
+        if(this.head.data == key) {
             this.head = prve.next;
         }
         else {
@@ -100,10 +100,10 @@ public class SingleLinkedList {
     //删除所有值为key的节点
     public void removeAllKey(int key) {
         Node prev = this.head;
-        Node cur = prev.next;
-        if(prev.data == key) {
-            remove(key);
+        if(this.head.data == key) {
+            this.head = this.head.next;
         }
+        Node cur = prev.next;
         while(cur != null) {
             if (cur.data == key) {
                 prev.next = cur.next;
@@ -112,9 +112,11 @@ public class SingleLinkedList {
                 prev = cur;
                 cur = cur.next;
             }
+            if(this.head.data == key) {
+                this.head = this.head.next;
+            }
         }
     }
-
     //得到单链表的长度
     public int size() {
         int count = 0;
@@ -125,7 +127,7 @@ public class SingleLinkedList {
         }
         return count;
     }
-
+// 打印
     public void display() {
         Node cur = this.head;
         while (cur != null) {
@@ -142,5 +144,19 @@ public class SingleLinkedList {
             cur = cur.next;
         }
         this.head = null;
+    }
+    // 反转链表
+    public void reverseList() {
+        Node prev = null;
+        Node cur = this.head;
+        while(cur != null) {
+            Node curNext = cur.next;
+            if(curNext == null) {
+                this.head = cur;
+            }
+            cur.next = prev;
+            prev = cur;
+            cur = curNext;
+        }
     }
 }
