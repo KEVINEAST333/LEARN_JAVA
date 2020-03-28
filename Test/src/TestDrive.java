@@ -9,9 +9,9 @@ public class TestDrive {
         singleLinkedList.addLast(1);
         singleLinkedList.addLast(2);
         singleLinkedList.addLast(3);
-//        singleLinkedList.addLast(4);
-//        singleLinkedList.addLast(5);
-//        singleLinkedList.addLast(6);
+        singleLinkedList.addLast(4);
+        singleLinkedList.addLast(5);
+        singleLinkedList.addLast(6);
 //        singleLinkedList.display();
 //        System.out.println(singleLinkedList.size());
 //        System.out.println(singleLinkedList.contains(20));
@@ -25,7 +25,10 @@ public class TestDrive {
 //        singleLinkedList.removeAllKey(2);
 //        singleLinkedList.clear();
 //        singleLinkedList.removeAllKey(1);
-        singleLinkedList.reverseList();
+//        singleLinkedList.reverseList();
+//        singleLinkedList.deleteDuplication();
+  //      singleLinkedList.middleNode();
+        singleLinkedList.FindKthToTail(4);
         singleLinkedList.display();
     }
 }

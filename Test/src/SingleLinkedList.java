@@ -159,4 +159,56 @@ public class SingleLinkedList {
             cur = curNext;
         }
     }
+    //在一个排序的链表中，存在重复的结点，请删除该链表中重复的结点
+    public void deleteDuplication() {
+        Node cur = this.head;
+        Node node = new Node(-1);
+        Node tmp = node;
+
+        while (cur != null) {
+            if(cur.next != null && cur.data == cur.next.data) {
+                while(cur.next != null && cur.data == cur.next.data) {
+                    cur = cur.next;
+                }
+                cur = cur.next;
+            }
+            else {
+                tmp.next = cur;
+                tmp = cur;
+                cur = cur.next;
+            }
+        }
+        tmp.next = null;
+        this.head = node.next;
+
+    }
+    //返回链表的中间结点。
+    public void middleNode() {
+        Node slow = this.head;
+        Node fast = this.head;
+        while(fast != null && fast.next != null ) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        slow.next = null;
+        this.head = slow;
+    }
+    //输入一个链表，输出该链表中倒数第k个结点。
+    public void FindKthToTail(int k) {
+        Node slow = this.head;
+        Node fast = this.head;
+        if(k < 1 || k > size()) {
+            return;
+        }
+        for(int i = 0;i < k - 1;i++) {
+            fast = fast.next;
+        }
+        while(fast.next != null) {
+            fast = fast.next;
+            slow = slow.next;
+        }
+        slow.next = null;
+        this.head = slow;
+    }
 }
+
