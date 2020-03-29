@@ -10,6 +10,7 @@ class Node {
 
 public class SingleLinkedList {
     public Node head;
+    //public Node head2;
 
     //构造方法
     public SingleLinkedList() {
@@ -209,6 +210,108 @@ public class SingleLinkedList {
         }
         slow.next = null;
         this.head = slow;
+
+    }
+    public void cycle() {
+        Node cur = this.head;
+        while(cur.next != null) {
+            cur = cur.next;
+        }
+        cur.next = this.head.next.next;
+    }
+    //给定一个链表，返回链表开始入环的第一个节点。 如果链表无环，则返回 null
+    public Node detectCycle() {
+        Node fast = this.head;
+        Node slow = this.head;
+        while(fast != null && fast.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+            if(fast == slow) {
+                break;
+            }
+        }
+        if(fast == null && fast.next == null) {
+            return null;
+        }
+        slow = this.head;
+        while(fast != null && fast.next != null) {
+            fast = fast.next;
+            slow = slow.next;
+            if (fast == slow) {
+                break;
+            }
+    }
+        this.head = slow;
+        slow.next = null;
+        return slow;
+
+    }
+    //是否是链表环
+    public boolean hasCycle() {
+        Node fast = this.head;
+        Node slow = this.head;
+        while(fast != null && fast.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+            if(fast == slow) {
+                return true;
+            }
+        }
+            return false;
+    }
+    //输入两个链表，找出它们的第一个公共结点
+    public Node getIntersectionNode(Node headA, Node headB) {
+        if(headA == null || headB == null) {
+            return null;
+        }
+        int length1 = 0;
+        int length2 = 0;
+        Node ps = headA;
+        Node pl = headB;
+        while (ps != null) {
+            length1++;
+            ps = ps.next;
+        }
+        while (pl != null) {
+            length2++;
+            pl = pl.next;
+        }
+        int tmp = length1 - length2;
+        if(tmp > 0) {
+            for (int i = 0;i < tmp;i++) {
+                headA = headA.next;
+            }
+            while (headA != null) {
+                if (headA.next == headB.next) {
+                    return headA;
+                }
+                headA = headA.next;
+                headB = headB.next;
+
+            }
+        }
+        if(tmp <= 0) {
+            for (int i = tmp;i < 0;i++) {
+                headB = headB.next;
+            }
+            while (headB != null) {
+                if (headA.next == headB.next) {
+                    return headA;
+                }
+                headA = headA.next;
+                headB = headB.next;
+
+            }
+        }
+        return null;
+    }
+    //创建一个交叉链表；
+    public void crossLinkedlist(Node head , Node head2) {
+        while (head !=null && head.next != null) {
+            head = head.next;
+        }
+        head = head2.next.next;
+
     }
 }
 
