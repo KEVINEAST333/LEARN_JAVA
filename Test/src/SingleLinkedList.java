@@ -264,54 +264,89 @@ public class SingleLinkedList {
         if(headA == null || headB == null) {
             return null;
         }
-        int length1 = 0;
-        int length2 = 0;
-        Node ps = headA;
-        Node pl = headB;
-        while (ps != null) {
-            length1++;
-            ps = ps.next;
-        }
-        while (pl != null) {
-            length2++;
-            pl = pl.next;
-        }
-        int tmp = length1 - length2;
-        if(tmp > 0) {
-            for (int i = 0;i < tmp;i++) {
-                headA = headA.next;
-            }
-            while (headA != null) {
-                if (headA.next == headB.next) {
-                    return headA;
-                }
-                headA = headA.next;
-                headB = headB.next;
+        int lenA = 0;
+        int lenB = 0;
 
-            }
-        }
-        if(tmp <= 0) {
-            for (int i = tmp;i < 0;i++) {
-                headB = headB.next;
-            }
-            while (headB != null) {
-                if (headA.next == headB.next) {
-                    return headA;
-                }
-                headA = headA.next;
-                headB = headB.next;
+        Node pL = headA;//代表长的单链表
+        Node pS = headB;//代表短的单链表
 
-            }
+        while (pL != null) {
+            lenA++;
+            pL = pL.next;
+        }
+        while (pS != null) {
+            lenB++;
+            pS = pS.next;
+        }
+        //如果不指回来 那么pl和ps是空
+        pL = headA;
+        pS = headB;
+
+        int len = lenA-lenB;
+        if (len < 0) {
+            pL = headB;
+            pS = headA;
+            len = lenB-lenA;
+        }
+        //可以保证：
+        // 1、pL指向了长的单链表   pS指向了短的单链表
+        //2、len的值 是一个正数
+        while (len  > 0) {
+            pL = pL.next;
+            len--;
+        }
+        //pL 走了差值len步
+        while (pL != pS) {
+            pS = pS.next;
+            pL = pL.next;
+        }
+        //pL == pS
+        if(pL==pS  && pL != null){
+            return pL;
         }
         return null;
     }
     //创建一个交叉链表；
     public void crossLinkedlist(Node head , Node head2) {
-        while (head !=null && head.next != null) {
+        while ( head.next != null) {
             head = head.next;
         }
-        head = head2.next.next;
-
+        head.next = head2.next.next;
+    }
+    //链表的回文结构
+    public boolean chkPalindrome() {
+        Node slow = this.head;
+        Node fast = this.head;
+        while(fast != null&&fast.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+        fast = this.head;
+        Node cur = slow;
+        Node prev = slow;
+        while(cur != null) {
+            Node curNext = cur.next;
+            cur.next = prev;
+            prev = cur;
+            cur = curNext;
+        }
+        cur = prev;
+        while(fast != slow ) {
+            if(fast.data != cur.data) {
+                return false;
+            }
+            fast = fast.next;
+            cur = cur.next;
+        }
+        return  true;
+    }
+    //合并链表
+    public void mergeList(Node head1,Node head2) {
+        Node cur = head1;
+        while(cur.next!= null) {
+            cur = cur.next;
+        }
+        cur.next = head2;
     }
 }
 
