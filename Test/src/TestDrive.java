@@ -45,6 +45,7 @@ public class TestDrive {
         System.out.println("................................");
         singleLinkedList.mergeList(singleLinkedList.head,singleLinkedList2.head);
         singleLinkedList.display();
+        singleLinkedList.cycle();
  //       System.out.println(singleLinkedList2.chkPalindrome());
         //      System.out.println(ret.data);
         //singleLinkedList.display();
