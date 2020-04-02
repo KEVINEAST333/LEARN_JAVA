@@ -127,6 +127,7 @@ public class DoubleLinkedList {
         }
         return count;
     }
+    //打印链表数据
     public void display() {
         Node cur = this.head;
         while(cur != null) {
@@ -134,6 +135,7 @@ public class DoubleLinkedList {
             cur = cur.next;
         }
     }
+    //清空链表
     public void clear() {
         this.head = null;
         this.last = null;

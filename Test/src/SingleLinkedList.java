@@ -10,7 +10,6 @@ class Node {
 
 public class SingleLinkedList {
     public Node head;
-    //public Node head2;
 
     //构造方法
     public SingleLinkedList() {
