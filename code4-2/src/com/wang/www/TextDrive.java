@@ -2,6 +2,9 @@ package com.wang.www;
 abstract class Shape {
     abstract public void draw();
 }
+abstract class shape2 extends Shape{
+
+}
 class Cycle extends Shape {
     @Override
     public void draw() {
