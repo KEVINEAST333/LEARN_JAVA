@@ -39,4 +39,5 @@ public class GamePoker {
         System.out.println("玩家六手牌" + play6.toString());
 
     }
+	//JAVA模拟洗牌 发牌
 }
