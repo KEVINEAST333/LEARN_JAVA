@@ -29,7 +29,6 @@ public class Sloution {
 
 
     public static void main(String[] args) {
-
         String s = "ab#c";
         String t = "ab#c";
         boolean a = backspaceCompare(s, t);
