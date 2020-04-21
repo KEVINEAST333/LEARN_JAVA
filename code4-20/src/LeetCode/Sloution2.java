@@ -1,5 +1,5 @@
 package LeetCode;
-
+//判断二叉树是否相同。
 public class Sloution2 {
     public boolean isSameTree(Node p, Node q) {
         if(p == null && q ==null) {

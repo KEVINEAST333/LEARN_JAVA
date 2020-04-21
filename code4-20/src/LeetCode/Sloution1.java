@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Sloution1 {
-    //
+    //先序遍历数组
     public static List<Character> preorderTraversal(Node root) {
         List<Character> list = new ArrayList<>();
         if (root == null) {
