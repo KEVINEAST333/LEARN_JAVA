@@ -1,6 +1,8 @@
 package TestTree;
 
 import javax.swing.*;
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class MyTree {
     public static Node buidTree() {
@@ -80,15 +82,74 @@ public class MyTree {
         }
         return find(root.right, toFind);
     }
+    //队列求二叉树深度
+    public static int maxDepth1(Node root) {
+        if (root == null) {
+            return 0;
+        }
+        Queue<Node> q = new LinkedList<>();
+        q.offer(root);
+        int preCount = 1;
+        int pCount = 0;
+
+        int level = 0;
+
+        while (!q.isEmpty()) {
+            Node temp = q.poll();
+            preCount--;
+
+            if (temp.left != null) {
+                q.offer(temp.left);
+                pCount++;
+            }
+            if (temp.right != null) {
+                q.offer(temp.right);
+                pCount++;
+            }
+
+            if (preCount == 0) {
+                preCount = pCount;
+                pCount = 0;
+                // System.out.println();
+                level++;
+            }
+        }
+        return level;
+    }
+    public static int maxDepth(Node root) {
+        if (root == null) {
+            return 0;
+        }
+        // bfs
+        Queue<Node> queue = new LinkedList<>();
+        int depth = 0;
+        queue.add(root);
+        while (!queue.isEmpty()) {
+            int size = queue.size();
+            depth++;
+            for (int i = 0; i < size; i++) {
+                Node temp = queue.poll();
+                if (temp.left != null) {
+                    queue.add(temp.left);
+                }
+                if (temp.right != null) {
+                    queue.add(temp.right);
+                }
+            }
+        }
+        return depth;
+    }
     public static void main(String[] args) {
         Node root = buidTree();
         firstOrder(root);
 //        getSize1(root);
 //        System.out.println(size);
-        System.out.println(getSize2(root));
+        //System.out.println(getSize2(root));
 //        System.out.println(leafSize(root));
 //        System.out.println(kLevelSize(root, 4));
-        Node result = find(root, 'G');
-        System.out.println(result);
+       // Node result = find(root, 'G');
+      //  System.out.println(result);
+        int high = maxDepth(root);
+        System.out.println(high);
     }
 }
