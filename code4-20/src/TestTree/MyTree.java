@@ -1,7 +1,9 @@
 package TestTree;
 
 import javax.swing.*;
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 
 public class MyTree {
@@ -29,6 +31,21 @@ public class MyTree {
         System.out.print(node.val + " -> ");
         firstOrder(node.left);
         firstOrder(node.right);
+    }
+    //层序遍历
+    public static void Order(Node node) {
+        Queue<Node> queue = new LinkedList<>();
+        queue.offer(node);
+        while(!queue.isEmpty()) {
+            System.out.print(queue.peek().val + " ");
+            node = queue.poll();
+            if(node.left != null) {
+                queue.offer(node.left);
+            }
+            if(node.right != null) {
+                queue.offer(node.right);
+            }
+        }
     }
     //求二叉树的结点个数—静态变量简单方法
     public static int size = 0;
@@ -141,7 +158,8 @@ public class MyTree {
     }
     public static void main(String[] args) {
         Node root = buidTree();
-        firstOrder(root);
+        //firstOrder(root);
+        Order(root);
 //        getSize1(root);
 //        System.out.println(size);
         //System.out.println(getSize2(root));
@@ -149,7 +167,7 @@ public class MyTree {
 //        System.out.println(kLevelSize(root, 4));
        // Node result = find(root, 'G');
       //  System.out.println(result);
-        int high = maxDepth(root);
-        System.out.println(high);
+        //int high = maxDepth(root);
+        //System.out.println(high);
     }
 }
