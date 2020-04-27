@@ -1,10 +1,9 @@
 package TestTree;
 
+import LeetCode.TreeNode;
+
 import javax.swing.*;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+import java.util.*;
 
 public class MyTree {
     public static Node buidTree() {
@@ -156,10 +155,38 @@ public class MyTree {
         }
         return depth;
     }
+    //循环后序遍历二叉树
+    public static void postOrder(Node root) {
+        if(root == null) {
+            return ;
+        }
+        Stack<Node> stack = new Stack<>();
+        Node cur = root.left;
+        Node prev = null;
+        stack.push(root);
+        while(!stack.isEmpty()) {
+            while(cur != null) {
+                stack.push(cur);
+                cur = cur.left;
+            }
+//            if(stack.isEmpty()) {
+//                break;
+//            }
+            Node top = stack.peek();
+            if(top.right == null || top.right == prev) {
+                System.out.print(top.val + " ");
+                prev = stack.pop();
+            }
+            else {
+                cur = top.right;
+            }
+
+        }
+    }
     public static void main(String[] args) {
         Node root = buidTree();
         //firstOrder(root);
-        Order(root);
+       // Order(root);
 //        getSize1(root);
 //        System.out.println(size);
         //System.out.println(getSize2(root));
@@ -169,5 +196,6 @@ public class MyTree {
       //  System.out.println(result);
         //int high = maxDepth(root);
         //System.out.println(high);
+        postOrder(root);
     }
 }
