@@ -12,7 +12,7 @@ public class Soulition6 {
             q.addLast(cur.right);
         }
         while(!q.isEmpty()) {
-            if(q.removeLast() == null) {
+            if(q.removeLast() != null) {
                 return false;
             }
         }
