@@ -3,13 +3,13 @@ package Test;
 public class MyPriorityQueue {
     private int[] array = new int[100]; // 暂时不考虑扩容
     private int size = 0;   // [0, size) 表示有效元素区间.
-    //增加元素
+    //增加元素offer方法
     public void offer(int x) {
         array[size] = x;
         size++;
         shiftUp(array,size,size - 1);
     }
-    //向上调整
+    //向上调整shiftUp方法
     private void shiftUp(int[] array, int size, int index) {
         int child = index;
         int parent = (child - 1) / 2;
@@ -26,7 +26,7 @@ public class MyPriorityQueue {
             parent = (child - 1) / 2;
         }
     }
-    //向下调整
+    //向下调整shiftDown方法
     private void shiftDown(int[] array, int size, int index) {
         int parent = index;
         int child = 2 * parent + 1;
@@ -46,7 +46,7 @@ public class MyPriorityQueue {
             child = parent * 2 + 1;
         }
     }
-    //出队列
+    //出队列poll方法
     public Integer poll() {
         if(size == 0) {
             return null;
@@ -57,14 +57,14 @@ public class MyPriorityQueue {
         shiftDown(array,size,0);
         return tmp;
     }
-    //取队首元素
+    //取队首元素peek方法
     public Integer peek() {
         if(size == 0) {
             return null;
         }
         return array[0];
     }
-    //判空
+    //判空isEmpty方法
     public boolean isEmpty() {
         return size == 0;
     }
