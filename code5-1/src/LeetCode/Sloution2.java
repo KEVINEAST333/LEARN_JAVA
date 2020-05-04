@@ -1,5 +1,4 @@
 package LeetCode;
-
 import java.util.Comparator;
 import java.util.PriorityQueue;
 //最后一块石头的重量
