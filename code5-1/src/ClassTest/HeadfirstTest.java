@@ -15,6 +15,6 @@ public class HeadfirstTest {
         String S = "123";
         int a = Integer.parseInt(S);
         System.out.println(a);*/
-        ArrayList<Integer> array = new ArrayList<>();7
+        ArrayList<Integer> array = new ArrayList<>();
     }
 }

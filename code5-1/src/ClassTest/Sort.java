@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 public class Sort {
     // 以升序排序为例
+    //插入排序
     public static void insertSort(int[] array) {
         //已排区间为[0,bound)
         //待排区间为[bound,size]
@@ -21,6 +22,7 @@ public class Sort {
             array[cur + 1] = tmp;
         }
     }
+    //希尔排序。
     public static void shellSort(int[] array) {
         int gap = array.length;
         while(gap > 1 ) {
@@ -29,7 +31,6 @@ public class Sort {
         }
         insertSortgap(array,1);
     }
-
     private static void insertSortgap(int[] array, int gap) {
         for(int bound = gap;bound < array.length;bound++) {
             int tmp = array[bound];
@@ -45,10 +46,37 @@ public class Sort {
             array[cur + gap] = tmp;
         }
     }
-
+    //冒泡排序。
+    private static void bubbleSort(int [] array) {
+        for(int bound = 0;bound < array.length ;bound++) {
+            for(int cur = 0;cur < array.length - 1 - bound;cur++) {
+                if(array[cur] > array[cur + 1]) {
+                    swap(array,cur,cur + 1);
+                }
+            }
+        }
+    }
+    //选择排序
+    private static void selectSort(int [] array) {
+        for(int bound = 0;bound < array.length;bound++) {
+            for(int cur = bound;cur < array.length;cur++) {
+                if(array[cur] < array[bound]) {
+                    swap(array,cur,bound);
+                }
+            }
+        }
+    }
+    //交换方法
+    private static void swap(int [] arr,int i,int j) {
+        int tmp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = tmp;
+    }
     public static void main(String[] args) {
-        int [] array = {4,7,2,1,8,0};
-        shellSort(array);
+        int [] array = {9,5,2,7,3,6,8};
+        //shellSort(array);
+        //bubbleSort(array);
+        selectSort(array);
         System.out.println(Arrays.toString(array));
     }
 }
