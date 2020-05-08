@@ -66,6 +66,39 @@ public class Sort {
             }
         }
     }
+    //堆排序
+    private static void heapSort(int [] array) {
+        creatHeap(array);
+        int heapSize = array.length;
+        for(int i = 0;i < array.length - 1;i++) {
+            swap(array,0,heapSize - 1);
+            heapSize--;
+            shiftDown(array,heapSize,0);
+        }
+    }
+
+    private static void creatHeap(int[] arr) {
+        for(int i = (arr.length - 1 - 1)/2;i >= 0;i--) {
+            shiftDown(arr,arr.length,i);
+        }
+    }
+    private static void shiftDown(int[] arr, int size, int index) {
+        int parent = index;
+        int child = parent * 2 + 1;
+        while(child < size) {
+            if((child + 1 < size) && (arr[child + 1] > arr[child])) {
+                child = child + 1;
+            }
+            if(arr[child] > arr[parent]) {
+                swap(arr,child,parent);
+            } else {
+                break;
+            }
+            parent = child;
+            child = 2 * parent + 1;
+        }
+    }
+
     //交换方法
     private static void swap(int [] arr,int i,int j) {
         int tmp = arr[i];
@@ -76,7 +109,9 @@ public class Sort {
         int [] array = {9,5,2,7,3,6,8};
         //shellSort(array);
         //bubbleSort(array);
-        selectSort(array);
+       //selectSort(array);
+        //creatHeap(array);
+        heapSort(array);
         System.out.println(Arrays.toString(array));
     }
 }
