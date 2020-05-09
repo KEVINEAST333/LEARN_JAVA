@@ -1,5 +1,7 @@
 package ClassTest;
 
+import com.sun.org.apache.xalan.internal.xsltc.dom.MultiValuedNodeHeapIterator;
+
 import java.util.Arrays;
 
 public class Sort {
@@ -98,6 +100,38 @@ public class Sort {
             child = 2 * parent + 1;
         }
     }
+    //快速排序（递归实现）
+    private static void quickSort(int [] array) {
+        quickSorthelper(array,0,array.length -1);
+    }
+
+    private static void quickSorthelper(int[] array, int left, int right) {
+        if(left >= right) {
+            return;
+        }
+        int index = partition(array,left,right);
+        quickSorthelper(array,left,index - 1);
+        quickSorthelper(array,index + 1,right);
+    }
+
+    private static int partition(int[] array, int left, int right) {
+        int baseVaule = array[right];
+        int i = left;
+        int j = right ;
+        while(i < j) {
+            while (i < j && array[i] <= baseVaule) {
+                i++;
+            }
+            while (i < j && array[j] >= baseVaule) {
+                j--;
+            }
+            if(i < j) {
+                swap(array, i, j);
+            }
+        }
+        swap(array,i,right);
+        return i;
+    }
 
     //交换方法
     private static void swap(int [] arr,int i,int j) {
@@ -111,7 +145,8 @@ public class Sort {
         //bubbleSort(array);
        //selectSort(array);
         //creatHeap(array);
-        heapSort(array);
+        //heapSort(array);
+        quickSort(array);
         System.out.println(Arrays.toString(array));
     }
 }
