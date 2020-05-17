@@ -4,7 +4,6 @@ import java.util.Map;
 public class TestMap {
    //找出那个只出现了一次的元素。
     //示例 1:
-    //
     //输入: [2,2,1]
     //输出: 1
     public int singleNumber(int[] nums) {
