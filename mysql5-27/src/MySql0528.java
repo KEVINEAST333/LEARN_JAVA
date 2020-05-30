@@ -23,5 +23,5 @@ public class MySql0528 {
 -- 计算一下许仙的平均成绩
     select student.name,avg(score.score)
     from student,score,course where student.id = score.student_id and course.id = score.course_id
-    and student.name like"许_";*/
+    and student.name like"许仙";*/
 }
