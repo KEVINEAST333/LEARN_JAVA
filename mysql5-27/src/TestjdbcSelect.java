@@ -23,7 +23,7 @@ public class TestjdbcSelect {
         //2.测试连接
         Connection connection = dataSource.getConnection();
         //3使用PrepareStatement拼装sql语句
-        String sql = "select * from student";
+        String sql = "select * from student" ;
         PreparedStatement statement = connection.prepareStatement(sql);
         //4.执行sql语句
         ResultSet resultSet = statement.executeQuery();
