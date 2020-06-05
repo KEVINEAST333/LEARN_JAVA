@@ -1,18 +1,24 @@
-import java.util.LinkedList;
-import java.util.Queue;
 import java.util.Stack;
-
 public class Question2 {
     public static void main(String[] args) {
-
+        String s = ")())";
+        System.out.println(chkParenthesis(s, s.length()));
     }
-    public boolean chkParenthesis(String A, int n) {
-        int length  = A.length();
-        Queue<String> queue = new LinkedList<>();
+    public static boolean chkParenthesis(String A, int n) {
         Stack<String> stack = new Stack<>();
-        for (int i = 0;i <length;i++) {
-            queue.offer("" + A.charAt(i));
-            stack.push("" + A.charAt(i));
+        for (int i = 0; i < n; i++) {
+            if(("" + A.charAt(i)).equals("(")) {
+                stack.push("" + A.charAt(i));
+            } else {
+                if(stack.isEmpty()) {
+                    return false;
+                }
+                stack.pop();
+            }
+            }
+        if (stack.isEmpty()) {
+            return true;
         }
+        return false;
     }
 }
