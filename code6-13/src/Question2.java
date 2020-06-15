@@ -24,7 +24,6 @@ public class Question2 {
             for(int i = 0;i < 10;i++) {
                 BigInteger bigInteger = new BigInteger(String.valueOf(i));
                 if(map.get(bigInteger) != null) {
-
                     System.out.println(i + ":" + map.get(bigInteger));
                 }
             }
