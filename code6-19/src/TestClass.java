@@ -1,5 +1,5 @@
 import java.io.*;
-
+//字节流
 public class TestClass {
     public static void main(String[] args) {
         copyFile2("E:\\A-测试\\javaweb线程池.png","E:\\A-测试\\javaweb线程池2.png");
@@ -27,7 +27,7 @@ public class TestClass {
         ) { byte [] bytes = new byte[1024];
             int len = -1;
             while((len = bufferedInputStream.read(bytes)) != -1) {
-                bufferedOutputStream.write(bytes,0,len);
+                bufferedOutputStream.write(bytes);
             }
         }  catch (IOException e) {
             e.printStackTrace();
