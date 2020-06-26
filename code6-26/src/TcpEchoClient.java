@@ -23,7 +23,7 @@ public class TcpEchoClient {
         BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()))) {
             while(true) {
                 String request = scanner.nextLine();
-                bufferedWriter.write(request);
+                bufferedWriter.write(request + "\n");
                 bufferedWriter.flush();
                 String result = bufferedReader.readLine();
                 System.out.println(result);
@@ -34,7 +34,7 @@ public class TcpEchoClient {
     }
 
     public static void main(String[] args) throws IOException {
-        TcpEchoClient tcpEchoClient = new TcpEchoClient("127.0.1",104);
+        TcpEchoClient tcpEchoClient = new TcpEchoClient("127.0.1",1040);
         tcpEchoClient.start();
     }
 }

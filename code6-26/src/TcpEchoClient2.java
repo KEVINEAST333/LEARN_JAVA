@@ -4,7 +4,7 @@ import java.io.*;
 import java.net.Socket;
 import java.util.Scanner;
 
-public class TcpEchoClient 2{
+public class TcpEchoClient2{
     // 1. 启动客户端(一定不要绑定端口号) 和服务器建立连接
     // 2. 进入主循环
     //  a) 读取用户输入内容
@@ -13,7 +13,7 @@ public class TcpEchoClient 2{
     //  d) 把响应数据显示到界面上.
     private Socket socket = null;
 
-    public TcpEchoClien(String serverIp, int serverPort) throws IOException {
+    public TcpEchoClient2(String serverIp, int serverPort) throws IOException {
         // 此处的实例化 Socket 过程, 就是在建立 TCP 连接
         socket = new Socket(serverIp, serverPort);
     }
@@ -44,7 +44,7 @@ public class TcpEchoClient 2{
     }
 
     public static void main(String[] args) throws IOException {
-        TcpEchoClient client = new TcpEchoClient("127.0.0.1", 9090);
+        TcpEchoClient2 client = new TcpEchoClient2("127.0.0.1", 1040);
         client.start();
     }
 }

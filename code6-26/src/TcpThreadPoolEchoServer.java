@@ -38,7 +38,6 @@ public class TcpThreadPoolEchoServer {
             while(true) {
                     String request = bufferedReader.readLine();
                     String response = process(request);
-                System.out.println(response);
                     bufferedWriter.write(response + "\n");
                     //刷新缓冲区上传
                     bufferedWriter.flush();
@@ -61,7 +60,7 @@ public class TcpThreadPoolEchoServer {
     }
 
     public static void main(String[] args) throws IOException {
-        TcpThreadPoolEchoServer tcpThreadPoolEchoServer = new TcpThreadPoolEchoServer(104);
+        TcpThreadPoolEchoServer tcpThreadPoolEchoServer = new TcpThreadPoolEchoServer(1040);
         tcpThreadPoolEchoServer.start();
     }
 }
