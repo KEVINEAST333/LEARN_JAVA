@@ -32,12 +32,15 @@ public class HttpRequest {
         //循环处理header
         String line = "";
         while ((line = bufferedReader.readLine()) != null && line.length() != 0) {
-            String[] headerToken = line.split(":");
+            String[] headerToken = line.split(": ");
             request.headers.put(headerToken[0],headerToken[1]);
         }
         // 4. 解析 cookie
         String cookie = request.headers.get("Cookie");
-        parseCookie(cookie, request.cookies);
+        if (cookie != null) {
+            // 把 cookie 进行解析
+            parseCookie(cookie, request.cookies);
+        }
         //5. 解析 body
         if ("POST".equalsIgnoreCase(request.method)
                 || "PUT".equalsIgnoreCase(request.method)) {
@@ -61,7 +64,7 @@ public class HttpRequest {
 
     private static void parseCookie(String cookie, Map<String, String> cookies) {
         // 1. 按照 分号空格 拆分成多个键值对
-        String[] kvTokens = cookie.split("; ");
+        String[] kvTokens = cookie.split(";");
         //2. 按照等号把键值拆分 放到cookies里面
         for ( String kv : kvTokens) {
             String[] result = kv.split("=");
@@ -95,11 +98,11 @@ public class HttpRequest {
         return headers.get(key);
     }
 
-    public String getParameters(String key) {
+    public String getParameter(String key) {
         return parameters.get(key);
     }
 
-    public String getCookies(String key) {
+    public String getCookie(String key) {
         return cookies.get(key);
     }
 
