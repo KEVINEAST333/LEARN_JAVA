@@ -15,4 +15,13 @@
     <url-pattern>/java-hello</url-pattern>
   </servlet-mapping>
 
+  <servlet>
+    <servlet-name>servletDemo1</servlet-name>
+    <servlet-class>servletDome1</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>servletDemo1</servlet-name>
+    <url-pattern>/Dome1</url-pattern>
+  </servlet-mapping>
+
 </web-app>
