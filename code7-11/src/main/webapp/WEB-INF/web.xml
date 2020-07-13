@@ -16,12 +16,12 @@
   </servlet-mapping>
 
   <servlet>
-    <servlet-name>servletDemo1</servlet-name>
+    <servlet-name>servletDemo2</servlet-name>
     <servlet-class>servletDome1</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>servletDemo1</servlet-name>
-    <url-pattern>/Dome1</url-pattern>
+    <servlet-name>servletDemo2</servlet-name>
+    <url-pattern>/servletDemo2</url-pattern>
   </servlet-mapping>
 
 </web-app>
