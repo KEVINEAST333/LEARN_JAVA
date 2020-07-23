@@ -58,14 +58,39 @@ public class UserDao {
         }
         return null;
     }
-
+    public User selectById (int userId){
+        //1.建立数据库连接
+        Connection connection = DBUtil.getConnection();
+        // 2.拼装sql
+        String sql = "select * from user where userId = ?";
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+        try {
+            statement = connection.prepareStatement(sql);
+            statement.setInt(1,userId);
+            resultSet = statement.executeQuery();
+            if(resultSet.next()) {
+                User user = new User();
+                user.setUserId(resultSet.getInt("userId"));
+                user.setName(resultSet.getString("name"));
+                user.setPassword(resultSet.getString("password"));
+                return user;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            DBUtil.close(connection,statement,resultSet);
+        }
+        return null;
+    }
     public static void main(String[] args) {
         UserDao userDao = new UserDao();
         User user = new User();
-        user.setName("wyh");
+        /*user.setName("wyh");
         user.setPassword("333");
-        userDao.add(user);
-         user = userDao.selectByName("wd");
-        System.out.println(user);
+        userDao.add(user);*/
+         //user = userDao.selectById(1);
+      /*  user = userDao.selectByName("wd");
+        System.out.println(user);*/
     }
 }
