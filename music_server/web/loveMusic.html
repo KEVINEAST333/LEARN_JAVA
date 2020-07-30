@@ -13,7 +13,7 @@
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
     <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 
-    <title>高博播放器实现</title>
+    <title>音乐播放器实现</title>
 
     <link rel="shortcut icon" href="#" />
 
@@ -34,7 +34,7 @@
         });
         function load(loveMusicName){
             $.ajax({
-                url: "/GaoBoMusic/findLoveMusic",
+                url: "/findLoveMusic",
                 type:"get",
                 data:{loveMusicName:loveMusicName},
                 dataType: "json",
