@@ -13,6 +13,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @WebServlet("/uploadsucess")
+//把上传的音乐信息插入到music 表中
 public class UploadInsertServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -31,7 +32,7 @@ public class UploadInsertServlet extends HttpServlet {
         User user = (User) req.getSession().getAttribute("user");
         int user_id = user.getId();
         int num = musicDao.Insert(title,singer,time,url,user_id);
-        if(num!=0) {
+        if(num != 0) {
             resp.sendRedirect("list.html");
         }
     }

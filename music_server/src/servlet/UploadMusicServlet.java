@@ -17,6 +17,7 @@ import java.io.IOException;
 import java.util.List;
 
 @WebServlet("/upload")
+//上传音乐文件到指定目录
 public class UploadMusicServlet extends HttpServlet {
     private final String SAVEPATH = "E:\\360MoveData\\Users\\王东\\Desktop\\LEARN_JAVA\\music_server\\web\\music\\";
 
@@ -49,7 +50,8 @@ public class UploadMusicServlet extends HttpServlet {
                 item.write(new File(SAVEPATH, fileName));
             } catch (Exception e) {
                 e.printStackTrace();
-            } resp.sendRedirect("uploadsucess.html");
+            }
+            resp.sendRedirect("uploadsucess.html");
         }
     }
 }

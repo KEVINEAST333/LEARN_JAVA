@@ -60,7 +60,7 @@
         function deleteInfo(obj) {
             console.log(obj);
             $.ajax({
-                url:"/GaoBoMusic/removeLoveServlet",
+                url:"/removeLoveServlet",
                 type: "post",
                 //发送给后端的数据
                 data: {"id": obj},
@@ -68,7 +68,7 @@
                 success: function (data) {
                     if(data.msg===true){
                         alert("移除成功");
-                        window.location.href="/GaoBoMusic/loveMusic.html";
+                        window.location.href="/loveMusic.html";
                     }else{
                         alert("移除失败");
                     }
@@ -97,7 +97,7 @@
         </form>
     </div>
     <div style="float: right;margin-bottom: 15px">
-        <a class="btn btn-primary" href="/GaoBoMusic/list.html">回到首页</a>
+        <a class="btn btn-primary" href="/list.html">回到首页</a>
     </div>
     <table border="1" class="table table-bordered table-hover">
         <tr class="success">

@@ -262,20 +262,19 @@ public class MusicDao {
         } return false;
     }
     //查找喜爱的音乐
-    public List<Music> findLoveMusic(int user_id){
+    public  List<Music> findLoveMusic(int user_id){
         List<Music> musics = new ArrayList<>();
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
         try {
             conn = DBUtils.getConnection();
-            ps = conn.prepareStatement("select * from music where id in" +
-                    " (select music_id from lovemusic where user_id = ?)");
+            ps = conn.prepareStatement("select * from music where id in (select music_id from lovemusic where user_id = ?)");
             ps.setInt(1,user_id);
             rs = ps.executeQuery();
             while(rs.next()) {
                 Music music = new Music();
-                music.setId(rs.getInt("music_id"));
+                music.setId(rs.getInt("id"));
                 music.setTitle(rs.getString("title"));
                 music.setSinger(rs.getString("singer"));
                 music.setTime(rs.getDate("time"));
@@ -296,7 +295,7 @@ public class MusicDao {
 * @param str
 * @return
         */
-    public  List<Music> ifMusicLove(String str,int user_id){
+    public   List<Music> ifMusicLove(String str,int user_id){
         List<Music> musics = new ArrayList<>();
         Connection conn = null;
         PreparedStatement ps = null;
@@ -332,6 +331,8 @@ public class MusicDao {
         //System.out.println(musics.toString());
        /* List<Music> res = ifMusicLove("将",1);
         System.out.println(res.toString());*/
+       // List<Music> musics  = findLoveMusic(1);
+        //System.out.println(musics.toString());
     }
 
 }
