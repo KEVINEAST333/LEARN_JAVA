@@ -50,7 +50,7 @@ public class UserDao {
         return user;
     }
     //注册、
-    public static void register(User user) {
+    public static boolean  register(User user) {
         Connection cnn = null;
         PreparedStatement ps = null;
         //ResultSet rs = null;
@@ -63,12 +63,18 @@ public class UserDao {
             ps.setInt(3, user.getAge());
             ps.setString(4, user.getGender());
             ps.setString(5, user.getEmail());
-            ps.executeUpdate();
+            int ret = ps.executeUpdate();
+            System.out.println(ret);
+            System.out.println(sql);
+            if(ret == 1) {
+                return true;
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
             DBUtils.close(cnn,ps,null);
         }
+        return false;
     }
 
     public static void main(String[] args) {
@@ -79,12 +85,11 @@ public class UserDao {
         User res = login(user);
         System.out.println(res);*/
         User user = new User();
-        user.setUsername("qiao");
+        user.setUsername("li");
         user.setPassword("123");
         user.setAge(18);
         user.setEmail("dd@love");
-        user.setGender("W");
-        register(user);
-
+        user.setGender("男");
+        System.out.println(register(user));
     }
 }
