@@ -34,7 +34,9 @@ public class DeleteMusicServlet extends HttpServlet {
         if(delete == 1) {
             //3、数据库删除完成后，检查还是否存在。如果不存在，那么删除掉磁盘上的文件
             File file = new
-                    File("E:\\360MoveData\\Users\\王东\\Desktop\\LEARN_JAVA\\music_server\\web\\"+music.getUrl()+".mp3");
+                    //File("E:\\360MoveData\\Users\\王东\\Desktop\\LEARN_JAVA\\music_server\\web\\"+music.getUrl()+".mp3");
+                   // /root/java/tomcat/apache-tomcat-8.5.57/webapps/onlineMusic/music
+            File("/root/java/tomcat/apache-tomcat-8.5.57/webapps/onlineMusic/"+music.getUrl()+".mp3");
             System.out.println("文件是否存在："+file.exists());
             System.out.println("file: "+file);
             if(file.delete()){

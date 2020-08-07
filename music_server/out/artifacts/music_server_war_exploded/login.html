@@ -29,14 +29,14 @@
 				var username=$("#user").val();
 				var password=$("#password").val();
 				$.ajax({
-					url:"/loginServlet",
+					url:"/onlineMusic/loginServlet",
                     data:{"username":username,"password":password},
                     type:"POST",
 					dataType:"json",
 					success:function (data) {
                         console.log(data);
                         if(data.msg===true){
-                            window.location.href="list.html";
+                            window.location.href="/onlineMusic/list.html";
                         }else{
                             /*window.location.reload();*/
                             $("#message").text("账号或密码错误，请重试!");
@@ -52,7 +52,7 @@
   </head>
   <body id="body">
   	<div class="container" style="width: 400px;margin-top: 110px;background-color: rgba(255,255,255,0.8)">
-  		<h3 style="text-align: center;">管理员登录</h3>
+  		<h3 style="text-align: center;">用户登录</h3>
 <!--        <form action="login" method="post">-->
 	      <div class="form-group" >
 	        <label for="user">用户名：</label>
@@ -71,7 +71,7 @@
 <!--	  	</form>-->
 		<!-- 出错显示的信息框 -->
 
-		<form method="POST" enctype="multipart/form-data" action="/regist2.html">
+		<form method="POST" enctype="multipart/form-data" action="/onlineMusic/regist2.html">
 			<table>
 				<tr>
 					<td>新用户:</td>

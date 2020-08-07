@@ -19,8 +19,8 @@ import java.util.List;
 @WebServlet("/upload")
 //上传音乐文件到指定目录
 public class UploadMusicServlet extends HttpServlet {
-    private final String SAVEPATH = "E:\\360MoveData\\Users\\王东\\Desktop\\LEARN_JAVA\\music_server\\web\\music\\";
-
+    //private final String SAVEPATH = "E:\\360MoveData\\Users\\王东\\Desktop\\LEARN_JAVA\\music_server\\web\\music\\";
+    private final String SAVEPATH = "/root/java/tomcat/apache-tomcat-8.5.57/webapps/onlineMusic/music";
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("utf-8");
@@ -51,7 +51,7 @@ public class UploadMusicServlet extends HttpServlet {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            resp.sendRedirect("uploadsucess.html");
+            resp.sendRedirect("/onlineMusic/uploadsucess.html");
         }
     }
 }

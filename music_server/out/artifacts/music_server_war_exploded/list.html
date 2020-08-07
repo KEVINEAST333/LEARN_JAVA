@@ -42,7 +42,7 @@
         });
         function load(musicName){
             $.ajax({
-                url: "/findMusic",
+                url: "/onlineMusic/findMusic",
                 type:"get",
                 data:{musicName:musicName},
                 dataType: "json",
@@ -85,7 +85,7 @@
         function loveInfo(obj) {
             console.log(obj);
             $.ajax({
-                url:"/loveMusicServlet",
+                url:"/onlineMusic/loveMusicServlet",
                 type: "post",
                 //发送给后端的数据
                 data: {"id": obj},
@@ -104,7 +104,7 @@
         function deleteInfo(obj) {
             console.log(obj);
             $.ajax({
-                url:"/deleteServlet",
+                url:"/onlineMusic/deleteServlet",
                 type: "post",
                 //发送给后端的数据
                 data: {"id": obj},
@@ -142,7 +142,7 @@
                     });
                     //发送ajax请求
                     $.ajax({
-                        url:"/deleteSelMusicServlet",
+                        url:"/onlineMusic/deleteSelMusicServlet",
                         //将id数组，发送给deleteSelectedServlet
                         data:{"id":id},
                         type: "POST",
@@ -150,10 +150,10 @@
                         success:function (data) {
                             if(data.msg===true){
                                 alert("删除成功");
-                                window.location.href="list.html";
+                                window.location.href="/onlineMusic/list.html";
                             }else{
                                 alert("删除失败歌曲路径不存在");
-                                window.location.href="list.html";
+                                window.location.href="/onlineMusic/list.html";
                             }
                         }
                     });
@@ -175,9 +175,9 @@
         </form>
     </div>
     <div style="float: right;margin-bottom: 15px">
-        <a class="btn btn-primary" href="/MV.html">MV列表</a>
-        <a class="btn btn-primary" href="/loveMusic.html">喜欢列表</a>
-        <a class="btn btn-primary" href="/upload.html">添加歌曲</a>
+        <a class="btn btn-primary" href="/onlineMusic/MV.html">MV列表</a>
+        <a class="btn btn-primary" href="/onlineMusic/loveMusic.html">喜欢列表</a>
+        <a class="btn btn-primary" href="/onlineMusic/upload.html">添加歌曲</a>
         <a id="delete" class="btn btn-primary">删除选中</a>
     </div>
     <table border="1" class="table table-bordered table-hover">

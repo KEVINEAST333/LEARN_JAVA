@@ -33,7 +33,7 @@ public class UploadInsertServlet extends HttpServlet {
         int user_id = user.getId();
         int num = musicDao.Insert(title,singer,time,url,user_id);
         if(num != 0) {
-            resp.sendRedirect("list.html");
+            resp.sendRedirect("/onlineMusic/list.html");
         }
     }
 }
