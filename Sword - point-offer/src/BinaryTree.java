@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class BinaryTree {
     class Node {
         int val;
@@ -89,5 +91,42 @@ public class BinaryTree {
         }
         //p.val == q.val? && p.left == q.left? && p.right == q.right?
         return p.val == q.val && isSameTree(p.left, q.left) && isSameTree(p.right,q.right);
+    }
+    //非递归实现先序遍历
+    //使用栈进行先序非递归遍历
+    public List<Integer> preorderTraversal(Node root) {
+        List<Integer> result = new ArrayList<>();
+        Stack<Node> stack = new Stack<>();
+        if(root == null) {
+            return result;
+        }
+        stack.push(root);
+        while(!stack.isEmpty()) {
+            Node node = stack.pop();
+            result.add(Integer.valueOf(node.val));
+            if(node.right != null) {
+                stack.push(node.right);
+            }
+            if(node.left != null) {
+                stack.push(node.left);
+            }
+        }
+        return result;
+    }
+    //层序遍历二叉树
+    //是使用队列来进行遍历的
+    public static void levelOrder(Node root) {
+        Queue<Node> queue = new LinkedList<>();
+        queue.offer(root);
+        while(!queue.isEmpty()) {
+            Node node = queue.poll();
+            System.out.println(node.val);
+            if(node.left != null) {
+                queue.offer(node.left);
+            }
+            if(node.right != null) {
+                queue.offer(node.right);
+            }
+        }
     }
 }
